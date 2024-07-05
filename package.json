@@ -1,0 +1,72 @@
+{
+  "name": "farmerLead",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android --port 9004",
+    "ios": "react-native run-ios --port 9004",
+    "start": "react-native webpack-start --port 9004",
+    "start:standalone": "STANDALONE=1 react-native webpack-start --port 9005",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "bootstrap:pods": "cd ios && pod install",
+    "bootstrap": "yarn && yarn bootstrap:pods",
+    "bundle:ios": "react-native webpack-bundle --platform ios --entry-file index.js",
+    "bundle:android": "react-native webpack-bundle --platform android --entry-file index.js"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
+    "@react-navigation/material-bottom-tabs": "^6.2.4",
+    "@react-navigation/native": "^6.0.13",
+    "@react-navigation/native-stack": "^6.9.1",
+    "react": "18.1.0",
+    "react-native": "0.70.5",
+    "react-native-calendars": "1.1291.1",
+    "react-native-paper": "5.0.0-rc.9",
+    "react-native-safe-area-context": "^4.4.1",
+    "react-native-screens": "^3.18.2",
+    "react-native-vector-icons": "^9.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@callstack/repack": "~3.7.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@tsconfig/react-native": "^2.0.2",
+    "@types/jest": "^26.0.23",
+    "@types/react": "^18.0.21",
+    "@types/react-native": "^0.70.6",
+    "@types/react-native-vector-icons": "^6.4.12",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^9.1.0",
+    "eslint": "^7.32.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "0.72.3",
+    "react-test-renderer": "18.1.0",
+    "terser-webpack-plugin": "^5.3.6",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0"
+  },
+    "federatedModule": "farmerLead",
+  "federatedDependencies": [
+    {
+      "name": "auth",
+      "type": "internal",
+      "url": "https://github.com/bharath-doijode/SuperApp"
+    }
+  ],
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
