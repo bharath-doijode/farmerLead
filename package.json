@@ -1,5 +1,5 @@
 {
-  "name": "farmerLead",
+  "name": "farmerlead",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -50,7 +50,7 @@
     "typescript": "^4.8.3",
     "webpack": "^5.74.0"
   },
-    "federatedModule": "farmerLead",
+    "federatedModule": "farmerlead",
   "federatedDependencies": [
     {
       "name": "auth",
