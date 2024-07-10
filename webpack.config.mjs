@@ -273,7 +273,7 @@ export default env => {
         },
       }),
      	new Repack.plugins.CodeSigningPlugin({
-	enabled: mode === 'production',
+	      enabled: mode === 'production',
         privateKeyPath: './code-signing.pem',
         outputPath: path.join('build', 'outputs', platform, 'remotes'),
       }),

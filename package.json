@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android --port 9004",
+    "android": "react-native run-android --port 9005",
     "ios": "react-native run-ios --port 9004",
     "start": "react-native webpack-start --port 9004",
     "start:standalone": "STANDALONE=1 react-native webpack-start --port 9005",
