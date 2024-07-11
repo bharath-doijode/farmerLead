@@ -78,7 +78,6 @@ function buildMiniApp(gitTag) {
   const scriptName = getScriptName(platform);
 
   const buildPath = path.join(
-    "packages",
     packageName,
     "build",
     "outputs",
