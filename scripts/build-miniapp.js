@@ -84,7 +84,8 @@ function buildMiniApp(gitTag) {
     platform,
     "remotes"
   );
-
+console.log("buildPath >>>", buildPath);
+  // Define a series of shell commands to execute";
   const commands = [
     { cmd: "pnpm", args: ["--filter", packageName, scriptName] },
     { cmd: "mv", args: [buildPath, "build"] },
