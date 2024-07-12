@@ -21,20 +21,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Install PNPM
-        run: npm i -g pnpm@8.9.2
+          cache: yarn
 
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install --frozen-lockfile
 
       - name: Create code-signing.pem
         env:
           CODE_SIGNING_KEY: ${{ secrets.CODE_SIGNING_KEY }}
         run: echo "$CODE_SIGNING_KEY" > code-signing.pem
 
-      - name: Build
-        run: pnpm node scripts/build-miniapp.js ${{ github.ref_name }}
+      - name: Run Android bundle script
+        if: contains(github.ref, 'farmerLead-android@')
+        run: yarn bundle:android
+
+      - name: Run iOS bundle script
+        if: contains(github.ref, 'farmerLead-ios@')
+        run: yarn bundle:ios
 
       - name: Delete code-signing.pem
         run: rm code-signing.pem
@@ -42,7 +45,7 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/**/*.bundle,build/**/*.map"
+          artifacts: 'build/outputs/**/*.bundle,build/outputs/**/*.map'
           artifactErrorsFailBuild: true
           skipIfReleaseExists: true
           name: ${{ github.ref_name }}
